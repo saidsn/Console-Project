@@ -9,17 +9,17 @@ namespace Service.Services.Interface
     {
         Group Create(Group group);
 
-
-
-
-
-
-
-
         Group Update(int id, Group group);
-        void Delete(int id);
+
+        Group Delete(int id);
+
         Group GetById(int id);
+
         List<Group> GetAll();
 
+        List<Group> Search(string name);
+
+
+        
     }
 }

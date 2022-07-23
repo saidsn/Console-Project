@@ -25,24 +25,66 @@ namespace Service.Services
             return group;
         }
 
-        public void Delete(int id)
+
+
+        public Group Delete(int id)
         {
-            throw new NotImplementedException();
+            Group group = GetById(id);
+            if (group == null) return null;
+            _groupRepository.Delete(group);
+            return group;
         }
+
+       
 
         public List<Group> GetAll()
         {
-            throw new NotImplementedException();
+            return _groupRepository.GetAll();
         }
+
+
 
         public Group GetById(int id)
         {
-            throw new NotImplementedException();
+            var group = _groupRepository.Get(m =>m.Id == id);
+            if (group == null) return null;
+            return group;
         }
+
+
+        public List<Group> Search(string name)
+        {
+            return _groupRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(name.ToLower().Trim()));
+        }
+
+
 
         public Group Update(int id, Group group)
         {
-            throw new NotImplementedException();
+            Group group1 = GetById(id);
+            if (group1 is null) return null;
+            group.Id = group1.Id;
+            _groupRepository.Update(group);
+            return group1;
         }
+
+
+        public List<Group> GetByTeacher(string teacher)
+        {
+            return _groupRepository.GetAll(m => m.Teacher.Trim().ToLower() == teacher.Trim().ToLower());
+        }
+
+        public List<Group> GetByRoom(string room)
+        {
+            return _groupRepository.GetAll(m => m.Room.Trim().ToLower() == room.Trim().ToLower());
+        }
+
+        
+
+
+
+
+
+
     }
 }

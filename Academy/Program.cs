@@ -1,6 +1,9 @@
 ﻿using Service.Helpers;
 using Service.Services;
 using System;
+using Domain.Models;
+using System.Collections.Generic;
+using AcademyApp.Controllers;
 
 namespace AcademyApp
 {
@@ -10,8 +13,14 @@ namespace AcademyApp
         {
             GroupService groupService = new GroupService();
 
-            Helper.writeConsole(ConsoleColor.Blue, "Select one Option :");
-            Helper.writeConsole(ConsoleColor.Yellow, "1 - Greate Group, 2 - Get Group by id, 3 - Update Group, 4 - Delete Group ");
+            GroupController groupController = new GroupController();
+
+            StudentController studentController = new StudentController();
+
+            Helper.WriteConsole(ConsoleColor.Blue, "Select one Option :");
+
+            GetMenues();
+
 
             while (true)
             {
@@ -25,64 +34,125 @@ namespace AcademyApp
                 {
                     switch (selectTrueOption)
                     {
-                        case 1:
-
-                            Helper.writeConsole(ConsoleColor.Blue, "Add group name :");
-                            string groupName = Console.ReadLine();
-                            inputname:
-                            Helper.writeConsole(ConsoleColor.Blue, "Add Teacher name :");
-                            string groupTeacherName = Console.ReadLine();
-                            foreach (var item in groupTeacherName)
-                            {
-                                for (int i = 0; i <= 9; i++)
-                                {
-                                    if (item.ToString() == i.ToString())
-                                    {
-                                        Helper.writeConsole(ConsoleColor.Red, "Please add correct name :");
-                                        //Console.WriteLine("duzgun daxil edin!!");
-                                        goto inputname;
-                                    }
-                                }
-                            }
 
 
 
 
-
-
-
-
-
-
+                        case (int)Menues.CreateGroup:
+                            groupController.Create();
                             break;
 
 
-                        case 2:
-                            Console.WriteLine(selectTrueOption);
+
+
+
+
+                        case (int)Menues.GetGroupById:
+                            groupController.GetById();
                             break;
 
 
-                        case 3:
-                            Console.WriteLine(selectTrueOption);
+
+
+                            
+                        //case (int)Menues.UpdateGroup:
+                        //    groupController.Update();
+                        //    break;
+
+
+
+
+
+
+
+                        case (int)Menues.DeleteGroup:
+                            groupController.Delete();
                             break;
 
 
-                        case 4:
-                            Console.WriteLine(selectTrueOption);
+
+
+
+
+                        case (int)Menues.GetAllGroups:
+                            groupController.GetAll();
                             break;
+
+
+
+
+
+
+
+                        case (int)Menues.SearchGroupByName:
+                            groupController.Search();
+                            break;
+
+
+
+
+
+                        case (int)Menues.CreateStudent:
+                            studentController.Create();
+                            break;
+
+
+
+
+
+                        case (int)Menues.GetAllStudentByGroupId:
+                            studentController.GetAllStudentByGroupId();
+                            break;
+
+
+
+
+                        case (int)Menues.DeleteStudent:
+                            studentController.Delete();
+                            break;
+
+
+
+
+                        case (int)Menues.GetAllGroupsbyTeacher:
+                            groupController.GetByTeacher();
+                            break;
+
+
+
+                        case (int)Menues.GetAllGroupsbyRoom:
+                            groupController.GetByRoom();
+                            break;
+
+
+
+
+
+                        case (int)Menues.GetStudentById:
+                            studentController.GetStudentById();
+                            break;
+
 
 
                         default:
-                            Helper.writeConsole(ConsoleColor.Red, "Select correct Option number :");
+                            Helper.WriteConsole(ConsoleColor.Red, "Select correct option number :");
                             break;
+
+
+
                     }
                 }
                 else
                 {
-                    Helper.writeConsole(ConsoleColor.Red, "Select correct Option :");
+                    Helper.WriteConsole(ConsoleColor.Red, "Select correct option :");
                     goto SelectOption;
                 }
             }
+        }
+        private static void GetMenues()
+        {
+            Helper.WriteConsole(ConsoleColor.Green, "1 - Greate Group\n2 - Get Group By Id\n3 - Update Group\n4 - Delete Group\n5 - GetAll Groups\n6 - Search Group By Name\n7 - Create Student\n8 - GetAll Student By Id\n9 - DeleteStudent\n10 - GetAllGroupsbyTeacher\n11 - GetAllGroupsbyRoom\n12 - GetStudentByid");
+                
         }
     }
 }
