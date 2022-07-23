@@ -59,29 +59,14 @@ namespace Service.Services
             return student;
         }
 
-        public List<Student> GetAllById(int id)
-        {
-            var students = _studentRepository.GetAll(m => m.Id == id);
-            if (students == null) return null;
-            return students;
-        }
-
-
         public List<Student> Search(string name)
         {
             return _studentRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(name.ToLower().Trim()));
         }
 
-
-        
-
-
-
-        public Student Update(int id, Group group)
+        public Student Update(int id, Student student)
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

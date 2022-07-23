@@ -61,11 +61,11 @@ namespace Service.Services
 
         public Group Update(int id, Group group)
         {
-            Group group1 = GetById(id);
-            if (group1 is null) return null;
-            group.Id = group1.Id;
+            Group dbgroup = GetById(id);
+            if (dbgroup is null) return null;
+            group.Id = dbgroup.Id;
             _groupRepository.Update(group);
-            return group1;
+            return dbgroup;
         }
 
 

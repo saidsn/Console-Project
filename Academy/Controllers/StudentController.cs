@@ -139,18 +139,17 @@ namespace AcademyApp.Controllers
             }
         }
 
-        //public void GetAllStudentByGroupId()
-        //{
-        //    List<Student> students = studentService.GetAllById();
+        public void GetAllStudentByGroupId()
+        {
+            List<Student> students = studentService.GetAll();
 
-           
-
-        //    foreach (var item in students)
-        //    {
+            foreach (var item in students)
+            {
                
-        //        Helper.WriteConsole(ConsoleColor.Green, $"Student id: {item.Id}, StudentName: {item.Name}, StudentSurName: {item.Surname}, StudentAge: {item.Age}");
-        //    }
-        //}
+                Helper.WriteConsole(ConsoleColor.Green, $"Student id: {item.Id}, StudentName: {item.Name}, StudentSurName: {item.Surname}, StudentAge: {item.Age}");
+            }
+        }
+
         public void GetStudentById()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Student id :");
@@ -178,5 +177,15 @@ namespace AcademyApp.Controllers
                 goto studentId;
             }
         }
+
+        //public void GetStudentByAge()
+        //{
+        //    Helper.WriteConsole(ConsoleColor.Blue, "Add Student Age :");
+
+        //    string studentAge = Console.ReadLine();
+
+        //    Student student = StudentService.
+
+        //}
     }
 }

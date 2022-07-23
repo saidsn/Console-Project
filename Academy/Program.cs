@@ -54,10 +54,10 @@ namespace AcademyApp
 
 
 
-                            
-                        //case (int)Menues.UpdateGroup:
-                        //    groupController.Update();
-                        //    break;
+
+                        case (int)Menues.UpdateGroup:
+                            groupController.Update();
+                            break;
 
 
 
@@ -151,7 +151,7 @@ namespace AcademyApp
         }
         private static void GetMenues()
         {
-            Helper.WriteConsole(ConsoleColor.Green, "1 - Greate Group\n2 - Get Group By Id\n3 - Update Group\n4 - Delete Group\n5 - GetAll Groups\n6 - Search Group By Name\n7 - Create Student\n8 - GetAll Student By Id\n9 - DeleteStudent\n10 - GetAllGroupsbyTeacher\n11 - GetAllGroupsbyRoom\n12 - GetStudentByid");
+            Helper.WriteConsole(ConsoleColor.Green, "1 - Greate Group\n2 - Get Group By Id\n3 - Update Group\n4 - Delete Group\n5 - GetAll Groups\n6 - Search Group By Name\n7 - Create Student\n8 - GetAll Student By Group Id\n9 - DeleteStudent\n10 - GetAllGroupsbyTeacher\n11 - GetAllGroupsbyRoom\n12 - GetStudentByid");
                 
         }
     }
