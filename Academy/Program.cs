@@ -42,90 +42,45 @@ namespace AcademyApp
                             groupController.Create();
                             break;
 
-
-
-
-
-
                         case (int)Menues.GetGroupById:
                             groupController.GetById();
                             break;
-
-
-
-
 
                         case (int)Menues.UpdateGroup:
                             groupController.Update();
                             break;
 
-
-
-
-
                         case (int)Menues.DeleteGroup:
                             groupController.Delete();
                             break;
-
-
-
-
 
                         case (int)Menues.GetAllGroups:
                             groupController.GetAll();
                             break;
 
-
-
-
-
                         case (int)Menues.SearchGroupsByName:
                             groupController.Search();
                             break;
-
-
-
-
 
                         case (int)Menues.CreateStudent:
                             studentController.Create();
                             break;
 
-
-
-
-
                         case (int)Menues.GetAllStudentsByGroupId:
                             studentController.GetAllStudentByGroupId();
                             break;
-
-
-
-
 
                         case (int)Menues.DeleteStudent:
                             studentController.Delete();
                             break;
 
-
-
-
-
                         case (int)Menues.GetAllGroupsByTeacher:
                             groupController.GetByTeacher();
                             break;
 
-
-
-
-
                         case (int)Menues.GetAllGroupsByRoom:
                             groupController.GetByRoom();
                             break;
-
-
-
-
 
                         case (int)Menues.GetStudentById:
                             studentController.GetStudentById();

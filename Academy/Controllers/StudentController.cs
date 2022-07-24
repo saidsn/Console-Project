@@ -18,6 +18,12 @@ namespace AcademyApp.Controllers
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
             GroupId: string groupId = Console.ReadLine();
 
+            if (string.IsNullOrWhiteSpace(groupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group id cant be empty :");
+                goto GroupId;
+            }
+
             int selectedgroupId;
 
             bool isSelectedId = int.TryParse(groupId, out selectedgroupId);
@@ -31,35 +37,57 @@ namespace AcademyApp.Controllers
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student name :");
                     inputname: string studentName = Console.ReadLine();
 
-                    foreach (var item in studentName)
+                    if (string.IsNullOrWhiteSpace(studentName))
                     {
-                        for (int i = 0; i <= 9; i++)
+                        Helper.WriteConsole(ConsoleColor.Red, "Student name cant be empty :");
+                        goto inputname;
+                    }
+
+                    for (int i = 0; i <= 9; i++)
+                    {
+                        if (studentName.Contains(i.ToString()))
                         {
-                            if (item.ToString() == i.ToString())
-                            {
-                                Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentName type:");
-                                goto inputname;
-                            }
+                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentName type:");
+                            goto inputname;
+                        }
+                        else if (string.IsNullOrWhiteSpace(studentName))
+                        {
+                            Helper.WriteConsole(ConsoleColor.Red, "Student name cant be empty :");
+                            goto inputname;
                         }
                     }
 
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student surname :");
                     inputname1: string studentSurName = Console.ReadLine();
 
-                    foreach (var item in studentSurName)
+                    if (string.IsNullOrWhiteSpace(studentSurName))
                     {
-                        for (int i = 0; i <= 9; i++)
+                        Helper.WriteConsole(ConsoleColor.Red, "Student surname cant be empty :");
+                        goto inputname1;
+                    }
+
+                    for (int i = 0; i <= 9; i++)
+                    {
+                        if (studentSurName.Contains(i.ToString()))
                         {
-                            if (item.ToString() == i.ToString())
-                            {
-                                Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentSurName type:");
-                                goto inputname1;
-                            }
+                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct student surname type:");
+                            goto inputname1;
+                        }
+                        else if (string.IsNullOrWhiteSpace(studentSurName))
+                        {
+                            Helper.WriteConsole(ConsoleColor.Red, "Student surname cant be empty :");
+                            goto inputname1;
                         }
                     }
 
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student Age :");
                     Age: string studentAge = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(studentAge))
+                    {
+                        Helper.WriteConsole(ConsoleColor.Red, "Student age cant be empty :");
+                        goto Age;
+                    }
 
                     int Age;
 
@@ -111,6 +139,13 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Student id :");
             StudentId: string studentId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(studentId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Student id cant be empty :");
+                goto StudentId;
+            }
+
             int id;
 
             bool isStudenttId = int.TryParse(studentId, out id);
@@ -145,6 +180,13 @@ namespace AcademyApp.Controllers
             SerchText: string search = Console.ReadLine();
 
 
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Student search text cant be empty :");
+                goto SerchText;
+            }
+
+
             List<Student> resultStudents = studentService.Search(search);
 
             if (resultStudents.Count != 0)
@@ -170,7 +212,13 @@ namespace AcademyApp.Controllers
         public void GetAllStudentByGroupId()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
-            string groupId = Console.ReadLine();
+            SerchText: string groupId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(groupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group id cant be empty :");
+                goto SerchText;
+            }
 
             int id;
             bool isGroupId = int.TryParse(groupId, out id);
@@ -196,6 +244,14 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Student id :");
         studentId: string studentId = Console.ReadLine();
+
+
+            if (string.IsNullOrWhiteSpace(studentId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Student id cant be empty :");
+                goto studentId;
+            }
+
             int id;
 
             bool isstudentId = int.TryParse(studentId, out id);
@@ -223,7 +279,14 @@ namespace AcademyApp.Controllers
         public void GetStudentByAge()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Students :");
-            string studentAge = Console.ReadLine();
+            studentId: string studentAge = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(studentAge))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Students age cant be empty :");
+                goto studentId;
+            }
+
             int age;
             bool isAge = int.TryParse(studentAge, out age);
 
@@ -237,7 +300,7 @@ namespace AcademyApp.Controllers
             }
             else
             {
-                Helper.WriteConsole(ConsoleColor.Blue, "Students not found :");
+                Helper.WriteConsole(ConsoleColor.Red, "Students not found :");
             }
 
         }
@@ -246,6 +309,12 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Student id :");
             StudentId: string updateStudentId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(updateStudentId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Student id cant be empty :");
+                goto StudentId;
+            }
 
             int studentId;
             bool isStudentId = int.TryParse(updateStudentId, out studentId);
@@ -259,37 +328,47 @@ namespace AcademyApp.Controllers
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new name :");
                 NewStudentName: string studentNewName = Console.ReadLine();
 
-                    foreach (var item in studentNewName)
+                    for (int i = 0; i <= 9; i++)
                     {
-                        for (int i = 0; i <= 9; i++)
+                        if (studentNewName.Contains(i.ToString()))
                         {
-                            if (studentNewName.Contains(i.ToString()))
-                            {
-                                Helper.WriteConsole(ConsoleColor.Red, "Student name is not correct :");
-                                goto NewStudentName;
-                            }
+                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentname type:");
+                            goto NewStudentName;
+                        }
+                        else if (string.IsNullOrWhiteSpace(studentNewName))
+                        {
+                            Helper.WriteConsole(ConsoleColor.Red, "Student new name cant be empty :");
+                            goto NewStudentName;
                         }
                     }
-                    
+
 
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new surname :");
                 NewStudentSurname: string studentNewSurname = Console.ReadLine();
 
-                    foreach (var item in studentNewSurname)
+                    for (int i = 0; i <= 9; i++)
                     {
-                        for (int i = 0; i <= 9; i++)
+                        if (studentNewSurname.Contains(i.ToString()))
                         {
-                            if (studentNewSurname.Contains(i.ToString()))
-                            {
-                                Helper.WriteConsole(ConsoleColor.Red, "Student surname is not correct :");
-                                goto NewStudentSurname;
-                            }
+                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentname type:");
+                            goto NewStudentSurname;
+                        }
+                        else if (string.IsNullOrWhiteSpace(studentNewSurname))
+                        {
+                            Helper.WriteConsole(ConsoleColor.Red, "Student new surname cant be empty :");
+                            goto NewStudentSurname;
                         }
                     }
-                    
+
 
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new age :");
                 NewStudentAge: string studentNewAge = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(studentNewAge))
+                    {
+                        Helper.WriteConsole(ConsoleColor.Red, " Student new age cant be empty :");
+                        goto NewStudentAge;
+                    }
 
                     int newAge;
                     bool isNewAge = int.TryParse(studentNewAge, out newAge);
@@ -313,14 +392,14 @@ namespace AcademyApp.Controllers
                         {
                             Name = studentNewName,
                             Surname = studentNewSurname,
-                            Age = age
+                            Age = newAge
                         };
 
                         var resultStudent = studentService.Update(studentId, student);
 
-                        if (resultStudent != null)
+                        if (resultStudent != null)   
                         {
-                            Helper.WriteConsole(ConsoleColor.Green, $"Student id: {resultStudent.Id}, StudentName: {resultStudent.Name}, StudentSurName: {resultStudent.Surname}, StudentAge: {resultStudent.Age}");
+                            Helper.WriteConsole(ConsoleColor.Green, $"Student id: {resultStudent.Id}, Student Name: {resultStudent.Name}, Student SurName: {resultStudent.Surname}, Student Age: {resultStudent.Age}");
                         }
                         else
                         {

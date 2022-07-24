@@ -13,26 +13,47 @@ namespace AcademyApp.Controllers
         public void Create()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group Name :");
-            string groupName = Console.ReadLine();
-            inputname:
+        inputname: string groupName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(groupName))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group name cant be empty :");
+                goto inputname;
+            }
+           
 
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group Teacher Name :");
-            string groupTeacherName = Console.ReadLine();
+            inputname1: string groupTeacherName = Console.ReadLine();
 
-            foreach (var item in groupTeacherName)
+            for (int i = 0; i <= 9; i++)
             {
-                for (int i = 0; i <= 9; i++)
+                if (groupTeacherName.Contains(i.ToString()))
                 {
-                    if (item.ToString() == i.ToString())
-                    {
-                        Helper.WriteConsole(ConsoleColor.Red, "Please add correct Group TeacherName :");
-                        goto inputname;
-                    }
+                    Helper.WriteConsole(ConsoleColor.Red, "Please add correct Group TeacherName :");
+                    goto inputname1;
+                }
+                else if (string.IsNullOrWhiteSpace(groupTeacherName))
+                {
+                    Helper.WriteConsole(ConsoleColor.Red, "Group teacher name cant be empty :");
+                    goto inputname1;
                 }
             }
 
             Helper.WriteConsole(ConsoleColor.Blue, "Add Room Name :");
-            string groupRoomName = Console.ReadLine();
+            RoomName: string groupRoomName = Console.ReadLine();
+
+
+            if (string.IsNullOrWhiteSpace(groupRoomName))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group room name cant be empty :");
+                goto RoomName;
+            }
+
+            if (string.IsNullOrWhiteSpace(groupRoomName))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group room name cant be empty :");
+                goto RoomName;
+            }
 
             Group group = new Group
             {
@@ -48,6 +69,12 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
         groupId: string groupId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(groupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group id cant be empty :");
+                goto groupId;
+            }
             int id;
 
             bool isgroupId = int.TryParse(groupId, out id);
@@ -87,6 +114,12 @@ namespace AcademyApp.Controllers
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group search text :");
         SerchText: string search = Console.ReadLine();
 
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group search text cant be empty :");
+                goto SerchText;
+            }
+
             List<Group> resultGroups = groupService.Search(search);
 
             if (resultGroups.Count != 0)
@@ -107,6 +140,13 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
         GroupId: string groupId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(groupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group id cant be empty :");
+                goto GroupId;
+            }
+
             int id;
 
             bool isGrouptId = int.TryParse(groupId, out id);
@@ -138,18 +178,27 @@ namespace AcademyApp.Controllers
             Helper.WriteConsole(ConsoleColor.Blue, "Add Teacher Name :");
         TeacherName: string teacherName = Console.ReadLine();
 
-            foreach (var item in teacherName)
+            if (string.IsNullOrWhiteSpace(teacherName))
             {
-                for (int i = 0; i <= 9; i++)
-                {
-                    if (item.ToString() == i.ToString())
-                    {
-                        Helper.WriteConsole(ConsoleColor.Red, "Please add correct GroupTeacherName :");
-                        goto TeacherName;
-                    }
-                }
-                
+                Helper.WriteConsole(ConsoleColor.Red, "Teacher name cant be empty :");
+                goto TeacherName;
             }
+
+
+            for (int i = 0; i <= 9; i++)
+            {
+                if (teacherName.Contains(i.ToString()))
+                {
+                    Helper.WriteConsole(ConsoleColor.Red, "Please add correct GroupTeacherName :");
+                    goto TeacherName;
+                }
+                else if (string.IsNullOrWhiteSpace(teacherName))
+                {
+                    Helper.WriteConsole(ConsoleColor.Red, "Teacher name cant be empty :");
+                    goto TeacherName;
+                }
+            }
+
             List<Group> teachers = groupService.GetByTeacher(teacherName);
             if(teachers.Count != 0)
             {
@@ -171,6 +220,12 @@ namespace AcademyApp.Controllers
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Room Name :");
         RoomName: string roomName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(roomName))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Room name cant be empty :");
+                goto RoomName;
+            }
 
 
             List<Group> rooms = groupService.GetByRoom(roomName);
@@ -201,7 +256,14 @@ namespace AcademyApp.Controllers
             if (isGroupId)
             {
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new name :");
-                string groupNewName = Console.ReadLine();
+                GroupNewName: string groupNewName = Console.ReadLine();
+
+
+                if (string.IsNullOrWhiteSpace(groupNewName))
+                {
+                    Helper.WriteConsole(ConsoleColor.Red, "Group new name cant be empty :");
+                    goto GroupNewName;
+                }
 
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new teacher name :");
                 NewTeachername: string groupNewTeacherName = Console.ReadLine();
@@ -210,13 +272,24 @@ namespace AcademyApp.Controllers
                 {
                     if (groupNewTeacherName.Contains(i.ToString()))
                     {
-                        Helper.WriteConsole(ConsoleColor.Red, "Teacher name is not correct :");
+                        Helper.WriteConsole(ConsoleColor.Red, "Group new teacher name is not correct :");
+                        goto NewTeachername;
+                    }
+                    else if (string.IsNullOrWhiteSpace(groupNewTeacherName))
+                    {
+                        Helper.WriteConsole(ConsoleColor.Red, "Teacher new name cant be empty :");
                         goto NewTeachername;
                     }
                 }
 
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new room name :");
                 GroupId: string groupNewRoomName = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(groupNewRoomName))
+                {
+                    Helper.WriteConsole(ConsoleColor.Red, "Group new room name cant be empty :");
+                    goto GroupId;
+                }
 
                 Group group = new Group()
                 {
