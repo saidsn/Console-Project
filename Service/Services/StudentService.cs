@@ -43,13 +43,10 @@ namespace Service.Services
         }
 
 
-
-
         public List<Student> GetAll()
         {
             return _studentRepository.GetAll();
         }
-
 
 
         public Student GetById(int id)
@@ -60,16 +57,32 @@ namespace Service.Services
         }
 
 
-
-
         public List<Student> Search(string search)
         {
             return _studentRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(search.ToLower().Trim()) || m.Surname.Trim().ToLower().StartsWith(search.ToLower().Trim()));
         }
 
+
         public Student Update(int id, Student student)
         {
-            throw new NotImplementedException();
+            Student dbstudent = GetById(id);
+            if (dbstudent is null) return null;
+            student.Id = dbstudent.Id;
+            _studentRepository.Update(student);
+            return dbstudent;
+        }
+
+
+        public List<Student> GetStudentByAge(int age)
+        {
+            return _studentRepository.GetAll(m => m.Age == age);
+        }
+
+
+        public List<Student> GetStudentsByGroupId(int id)
+        {
+            var datas = _studentRepository.GetAll(m => m.Group.Id == id);
+            return datas;
         }
     }
 }

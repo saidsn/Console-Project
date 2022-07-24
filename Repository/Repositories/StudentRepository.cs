@@ -45,7 +45,16 @@ namespace Repository.Repositories
 
         public void Update(Student data)
         {
-            throw new NotImplementedException();
+            Student student = Get(m => m.Id == data.Id);
+
+            if (!string.IsNullOrEmpty(data.Name))
+                student.Name = data.Name;
+
+            if (!string.IsNullOrEmpty(data.Surname))
+                student.Surname = data.Surname;
+
+            if (data.Age != null)
+                student.Age = data.Age;
         }
     }
 }

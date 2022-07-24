@@ -28,15 +28,11 @@ namespace Repository.Repositories
         }
 
 
-
         public void Delete(Group data)
         {
             
             AppDbContext<Group>.datas.Remove(data);
         }
-
-
-
 
 
         public Group Get(Predicate<Group> predicate = null)
@@ -46,17 +42,11 @@ namespace Repository.Repositories
         }
 
 
-
-
-
         public List<Group> GetAll(Predicate<Group> predicate = null )
         {
             return predicate != null ? AppDbContext<Group>.datas.FindAll(predicate) : AppDbContext<Group>.datas;
 
         }
-
-
-
 
 
         public void Update(Group data)

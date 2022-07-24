@@ -19,7 +19,10 @@ namespace Service.Services.Interface
 
         List<Group> Search(string name);
 
+        public List<Group> GetByTeacher(string teacher);
 
-        
+        public List<Group> GetByRoom(string room);
+
+
     }
 }

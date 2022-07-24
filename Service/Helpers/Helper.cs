@@ -21,15 +21,16 @@ namespace Service.Helpers
         UpdateGroup = 3,
         DeleteGroup = 4,
         GetAllGroups = 5,
-        SearchGroupByName = 6,
+        SearchGroupsByName = 6,
         CreateStudent = 7,
-        GetAllStudentByGroupId = 8,
+        GetAllStudentsByGroupId = 8,
         DeleteStudent = 9,
-        GetAllGroupsbyTeacher = 10,
-        GetAllGroupsbyRoom = 11,
+        GetAllGroupsByTeacher = 10,
+        GetAllGroupsByRoom = 11,
         GetStudentById = 12,
         SearchStudentsByNameOrSurname = 13,
-
+        UpdateStudent = 14,
+        GetStudentsByAge = 15
 
     }
 }
