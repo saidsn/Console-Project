@@ -1,0 +1,5 @@
+C:\Users\OMEN\OneDrive\İş masası\HOMEWORK\ConsoleProject C#\Academy\Academy\obj\Debug\netcoreapp3.1\CourseApp.csproj.AssemblyReference.cache
+C:\Users\OMEN\OneDrive\İş masası\HOMEWORK\ConsoleProject C#\Academy\Academy\obj\Debug\netcoreapp3.1\CourseApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMEN\OneDrive\İş masası\HOMEWORK\ConsoleProject C#\Academy\Academy\obj\Debug\netcoreapp3.1\CourseApp.AssemblyInfoInputs.cache
+C:\Users\OMEN\OneDrive\İş masası\HOMEWORK\ConsoleProject C#\Academy\Academy\obj\Debug\netcoreapp3.1\CourseApp.AssemblyInfo.cs
+C:\Users\OMEN\OneDrive\İş masası\HOMEWORK\ConsoleProject C#\Academy\Academy\obj\Debug\netcoreapp3.1\CourseApp.csproj.CoreCompileInputs.cache

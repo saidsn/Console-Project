@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademyApp", "Academy\AcademyApp.csproj", "{3F561E84-3532-4282-8220-1394907F5CA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcademyApp", "Academy\AcademyApp.csproj", "{3F561E84-3532-4282-8220-1394907F5CA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{CA4BDD57-DCEE-47E2-B7E2-783639B13235}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{CA4BDD57-DCEE-47E2-B7E2-783639B13235}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{13F5E2A6-FA89-4355-9644-56EABD6DB22E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{13F5E2A6-FA89-4355-9644-56EABD6DB22E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{F74EE606-26DA-41DB-997F-CFFAE003F927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{F74EE606-26DA-41DB-997F-CFFAE003F927}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -93,7 +93,7 @@ namespace AcademyApp.Controllers
             {
                 foreach (var item in resultGroups)
                 {
-                    Helper.WriteConsole(ConsoleColor.Green, $"Group id: {item.Id}, GroupName: {item.Name}, GroupTeacherName: {item.Teacher}, GroupRoomName: {item.Room}");
+                    Helper.WriteConsole(ConsoleColor.Green, $" Group id: {item.Id}, GroupName: {item.Name}, GroupTeacherName: {item.Teacher}, GroupRoomName: {item.Room}");
                 }
             }
             else

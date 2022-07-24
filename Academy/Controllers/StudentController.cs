@@ -139,10 +139,42 @@ namespace AcademyApp.Controllers
             }
         }
 
+        public void Search()
+        {
+            Helper.WriteConsole(ConsoleColor.Blue, "Add Student search text :");
+            SerchText: string search = Console.ReadLine();
+
+
+            List<Student> resultStudents = studentService.Search(search);
+
+            if (resultStudents.Count != 0)
+            {
+                foreach (var item in resultStudents)
+                {
+                    Helper.WriteConsole(ConsoleColor.Green, $" Student id: {item.Id}, Student Name: {item.Name}, Student SurName : {item.Surname}, Student Age: {item.Age}");
+                   
+                }
+
+            }
+            else
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Student name not Found :");
+                goto SerchText;
+            }
+
+           
+
+
+        }
+        
+
         public void GetAllStudentByGroupId()
         {
-            List<Student> students = studentService.GetAll();
+            Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
+            string groupId = Console.ReadLine();
 
+            List<Student> students = studentService.GetAll();
+            
             foreach (var item in students)
             {
                

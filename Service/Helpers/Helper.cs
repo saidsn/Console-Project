@@ -27,7 +27,9 @@ namespace Service.Helpers
         DeleteStudent = 9,
         GetAllGroupsbyTeacher = 10,
         GetAllGroupsbyRoom = 11,
-        GetStudentById = 12
+        GetStudentById = 12,
+        SearchStudentsByNameOrSurname = 13,
+
 
     }
 }

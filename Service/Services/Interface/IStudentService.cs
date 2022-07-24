@@ -17,7 +17,7 @@ namespace Service.Services.Interface
 
         List<Student> GetAll();
 
-        List<Student> Search(string name);
+        List<Student> Search(string search);
 
 
 

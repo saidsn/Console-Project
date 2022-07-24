@@ -19,11 +19,11 @@ namespace Service.Services
             _studentRepository = new StudentRepository();
             _groupRepository = new GroupRepository();
         }
-       
+
 
         public Student Create(int groupId, Student student)
         {
-           
+
             var group = _groupRepository.Get(m => m.Id == groupId);
             if (group is null) return null;
             student.Id = _count;
@@ -50,7 +50,7 @@ namespace Service.Services
             return _studentRepository.GetAll();
         }
 
-        
+
 
         public Student GetById(int id)
         {
@@ -59,9 +59,12 @@ namespace Service.Services
             return student;
         }
 
-        public List<Student> Search(string name)
+
+
+
+        public List<Student> Search(string search)
         {
-            return _studentRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(name.ToLower().Trim()));
+            return _studentRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(search.ToLower().Trim()) || m.Surname.Trim().ToLower().StartsWith(search.ToLower().Trim()));
         }
 
         public Student Update(int id, Student student)
