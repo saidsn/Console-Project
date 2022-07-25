@@ -133,7 +133,7 @@ namespace AcademyApp
             Helper.WriteConsole(ConsoleColor.Green, "1 - Greate Group\n2 - Get Group By Id\n3 - Update Group\n4 - Delete Group\n5" +
                 " - Get All Groups\n6 - Search Group By Name\n7 - Create Student\n8 - GetAll Student By Group Id\n9" +
                 " - Delete Student\n10 - Get All Groups by Teacher\n11 - Get All Groups by Room\n12 - Get Student By id\n13 " +
-                " - Search Students By Name Or Surname\n14 - Update Student\n15 - GetStudentsByAge");
+                " -Search Students By Name Or Surname\n14 - Update Student\n15 - GetStudentsByAge");
                 
         }
     }

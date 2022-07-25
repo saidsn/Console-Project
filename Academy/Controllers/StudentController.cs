@@ -307,14 +307,18 @@ namespace AcademyApp.Controllers
 
         public void Update()
         {
+
             Helper.WriteConsole(ConsoleColor.Blue, "Add Student id :");
-            StudentId: string updateStudentId = Console.ReadLine();
+        StudentId: string updateStudentId = Console.ReadLine();
+
 
             if (string.IsNullOrWhiteSpace(updateStudentId))
             {
                 Helper.WriteConsole(ConsoleColor.Red, "Student id cant be empty :");
                 goto StudentId;
             }
+
+
 
             int studentId;
             bool isStudentId = int.TryParse(updateStudentId, out studentId);
@@ -328,17 +332,15 @@ namespace AcademyApp.Controllers
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new name :");
                 NewStudentName: string studentNewName = Console.ReadLine();
 
-                    for (int i = 0; i <= 9; i++)
+                    foreach (var item in studentNewName)
                     {
-                        if (studentNewName.Contains(i.ToString()))
+                        for (int i = 0; i <= 9; i++)
                         {
-                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentname type:");
-                            goto NewStudentName;
-                        }
-                        else if (string.IsNullOrWhiteSpace(studentNewName))
-                        {
-                            Helper.WriteConsole(ConsoleColor.Red, "Student new name cant be empty :");
-                            goto NewStudentName;
+                            if (item.ToString() == i.ToString())
+                            {
+                                Helper.WriteConsole(ConsoleColor.Red, "Please add correct name type:");
+                                goto NewStudentName;
+                            }
                         }
                     }
 
@@ -346,17 +348,15 @@ namespace AcademyApp.Controllers
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new surname :");
                 NewStudentSurname: string studentNewSurname = Console.ReadLine();
 
-                    for (int i = 0; i <= 9; i++)
+                    foreach (var item in studentNewSurname)
                     {
-                        if (studentNewSurname.Contains(i.ToString()))
+                        for (int i = 0; i <= 9; i++)
                         {
-                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct studentname type:");
-                            goto NewStudentSurname;
-                        }
-                        else if (string.IsNullOrWhiteSpace(studentNewSurname))
-                        {
-                            Helper.WriteConsole(ConsoleColor.Red, "Student new surname cant be empty :");
-                            goto NewStudentSurname;
+                            if (item.ToString() == i.ToString())
+                            {
+                                Helper.WriteConsole(ConsoleColor.Red, "Please add correct surname type:");
+                                goto NewStudentSurname;
+                            }
                         }
                     }
 
@@ -364,15 +364,10 @@ namespace AcademyApp.Controllers
                     Helper.WriteConsole(ConsoleColor.Blue, "Add student new age :");
                 NewStudentAge: string studentNewAge = Console.ReadLine();
 
-                    if (string.IsNullOrWhiteSpace(studentNewAge))
-                    {
-                        Helper.WriteConsole(ConsoleColor.Red, " Student new age cant be empty :");
-                        goto NewStudentAge;
-                    }
 
                     int newAge;
                     bool isNewAge = int.TryParse(studentNewAge, out newAge);
-                    
+
 
                     if (isNewAge || studentNewAge == "")
                     {
@@ -387,7 +382,7 @@ namespace AcademyApp.Controllers
                         {
                             age = newAge;
                         }
-
+                       
                         Student student = new Student()
                         {
                             Name = studentNewName,
@@ -397,7 +392,7 @@ namespace AcademyApp.Controllers
 
                         var resultStudent = studentService.Update(studentId, student);
 
-                        if (resultStudent != null)   
+                        if (resultStudent != null)
                         {
                             Helper.WriteConsole(ConsoleColor.Green, $"Student id: {resultStudent.Id}, Student Name: {resultStudent.Name}, Student SurName: {resultStudent.Surname}, Student Age: {resultStudent.Age}");
                         }

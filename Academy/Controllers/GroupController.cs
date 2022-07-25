@@ -248,8 +248,14 @@ namespace AcademyApp.Controllers
         public void Update()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add Group id :");
-            string updateGroupId = Console.ReadLine();
-            
+            inputname: string updateGroupId = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(updateGroupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Group id cant be empty :");
+                goto inputname;
+            }
+
             int groupId;
             bool isGroupId = int.TryParse(updateGroupId, out groupId);
 
@@ -258,38 +264,25 @@ namespace AcademyApp.Controllers
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new name :");
                 GroupNewName: string groupNewName = Console.ReadLine();
 
-
-                if (string.IsNullOrWhiteSpace(groupNewName))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Group new name cant be empty :");
-                    goto GroupNewName;
-                }
-
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new teacher name :");
                 NewTeachername: string groupNewTeacherName = Console.ReadLine();
 
-                for (int i = 0; i <= 9; i++)
+
+                foreach (var item in groupNewTeacherName)
                 {
-                    if (groupNewTeacherName.Contains(i.ToString()))
+                    for (int i = 0; i <= 9; i++)
                     {
-                        Helper.WriteConsole(ConsoleColor.Red, "Group new teacher name is not correct :");
-                        goto NewTeachername;
-                    }
-                    else if (string.IsNullOrWhiteSpace(groupNewTeacherName))
-                    {
-                        Helper.WriteConsole(ConsoleColor.Red, "Teacher new name cant be empty :");
-                        goto NewTeachername;
+                        if (item.ToString() == i.ToString())
+                        {
+                            Helper.WriteConsole(ConsoleColor.Red, "Please add correct teacher name:");
+                            goto NewTeachername;
+                        }
                     }
                 }
 
                 Helper.WriteConsole(ConsoleColor.Blue, "Add Group new room name :");
                 GroupId: string groupNewRoomName = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(groupNewRoomName))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Group new room name cant be empty :");
-                    goto GroupId;
-                }
 
                 Group group = new Group()
                 {

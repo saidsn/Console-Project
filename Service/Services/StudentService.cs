@@ -69,7 +69,7 @@ namespace Service.Services
             if (dbstudent is null) return null;
             student.Id = dbstudent.Id;
             _studentRepository.Update(student);
-            return student;
+            return dbstudent;
         }
 
 
